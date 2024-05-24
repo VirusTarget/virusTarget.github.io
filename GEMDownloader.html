@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirect Page</title>
+</head>
+<body>
+
+<script>
+// 检测用户设备类型
+function detectDevice() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+        // 如果是安卓设备，则重定向到安卓下载链接
+        window.location.href = 'https://play.google.com/store/apps/details?id=uni.UNI9691939';
+    } else if (/iPad|iPhone|iPod/i.test(userAgent) && !window.MSStream) {
+        // 如果是iOS设备，则重定向到iOS下载链接
+        window.location.href = 'itms-apps://itunes.apple.com/app/id6449943090';
+    } else {
+        // 如果不是安卓或iOS设备，则重定向到通用链接或其他处理
+        // 你可以在这里添加你的逻辑
+        alert("无法检测到您的设备类型！");
+        alert(userAgent)
+    }
+}
+
+// 页面加载完成后调用detectDevice函数
+window.onload = detectDevice;
+</script>
+
+</body>
+</html>
